@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/gurusaranm0025/DSATP/algorithms/tricks"
+	"github.com/gurusaranm0025/DSATP/algorithms/linkedList"
 )
 
 func main(){
@@ -12,7 +12,23 @@ func main(){
 	
 	// nums = sorting.BubbleSort(nums)
 	// i := searching.BinarySearch(sortedNums, 32)
-	i := tricks.RangedSum(10,30)
+	// i := tricks.RangedSum(10,30)
+
+	list := linkedList.DoublyLinkedList{}
+	list.Append(3)
+	list.Append(67)
+	list.Append("Hi")
 		
-	fmt.Println(i)
+	fmt.Println(list.Get(0))
+	fmt.Println(list.Get(1))
+	fmt.Println(list.Get(2))
+
+	list.Remove(3)
+	fmt.Println("Remoed")
+	fmt.Println(list.Get(0))
+
+	// for i:=0; i<list.GetLength(); i++{
+	// 	fmt.Println(list.Get(i))
+	// }
+
 }

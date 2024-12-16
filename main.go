@@ -1,10 +1,8 @@
 package main
 
-// "github.com/gurusaranm0025/DSATP/algorithms/linkedList"
+import mazesolver "github.com/gurusaranm0025/DSATP/algorithms/MazeSolver"
 
-import (
-	"github.com/gurusaranm0025/DSATP/algorithms/search"
-)
+// "github.com/gurusaranm0025/DSATP/algorithms/linkedList"
 
 func main() {
 	// nums := []int{3,7,4,9,12,45,0,65,32,23}
@@ -18,5 +16,5 @@ func main() {
 	// 	fmt.Println(list.Get(i))
 	// }
 
-	search.RunTwoCrystallBalls()
+	mazesolver.RunMazeSolver()
 }

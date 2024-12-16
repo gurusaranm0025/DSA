@@ -4,15 +4,22 @@ import "math"
 
 type Node struct {
 	Value any
-	prev *Node
+	prev  *Node
 }
 
 type Stack struct {
-	head *Node
+	head   *Node
 	length int
 }
 
-func(stack *Stack) Peek() any {
+func NewStack() *Stack {
+	return &Stack{
+		length: 0,
+		head:   nil,
+	}
+}
+
+func (stack *Stack) Peek() any {
 	if stack.head == nil {
 		return nil
 	}
@@ -20,7 +27,7 @@ func(stack *Stack) Peek() any {
 	return stack.head.Value
 }
 
-func(stack *Stack) Push(value any) {
+func (stack *Stack) Push(value any) {
 	var node Node = Node{
 		Value: value,
 	}
@@ -35,7 +42,7 @@ func(stack *Stack) Push(value any) {
 	stack.head = &node
 }
 
-func(stack *Stack) Pop() any {
+func (stack *Stack) Pop() any {
 	stack.length = int(math.Max(0, float64(stack.length)))
 
 	if stack.length == 0 {

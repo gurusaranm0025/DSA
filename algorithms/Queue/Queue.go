@@ -1,47 +1,61 @@
 package queue
 
-type Node struct {
-	Value any
-	next *Node
+type node struct {
+	value any
+	next  *node
 }
 
 type Queue struct {
-	head *Node
-	tail *Node
 	length int
+	head   *node
+	tail   *node
 }
 
-func(queue *Queue) Peek() any {
-	if queue.head == nil {
+func NewQueue() *Queue {
+	return &Queue{
+		length: 0,
+		head:   nil,
+		tail:   nil,
+	}
+}
+
+func (q *Queue) Peek() any {
+	if q.head == nil {
 		return nil
 	}
 
-	return queue.head.Value
+	return q.head.value
 }
 
-func(queue *Queue) Dequeue() any {
-	if queue.head == nil {
+func (q *Queue) Dequeue() any {
+	if q.head == nil {
 		return nil
 	}
-	queue.length--
 
-	var head *Node= queue.head
-	queue.head = head.next
-	head.next = nil
-	return head.Value
+	q.length--
+
+	head := q.head
+	q.head = q.head.next
+
+	if q.length == 0 {
+		q.tail = nil
+	}
+
+	return head.value
 }
 
-func (queue *Queue) Enqueue(value any) {
-	var node Node = Node{
-		Value: value,
+func (q *Queue) Enqueue(item any) {
+	node := &node{
+		value: item,
+		next:  nil,
 	}
-	queue.length++
-	if queue.tail == nil {
-		queue.tail , queue.head = &node, &node
+
+	if q.tail == nil {
+		q.head = node
+		q.tail = node
 		return
 	}
 
-	queue.tail.next = &node
-	queue.tail = &node
-
+	q.tail.next = node
+	q.tail = node
 }

@@ -1,6 +1,6 @@
 package main
 
-import mazesolver "github.com/gurusaranm0025/DSATP/algorithms/MazeSolver"
+import "github.com/gurusaranm0025/DSATP/algorithms/sort"
 
 // "github.com/gurusaranm0025/DSATP/algorithms/linkedList"
 
@@ -16,5 +16,7 @@ func main() {
 	// 	fmt.Println(list.Get(i))
 	// }
 
-	mazesolver.RunMazeSolver()
+	// mazesolver.RunMazeSolver()
+
+	sort.RunQuickSort()
 }
